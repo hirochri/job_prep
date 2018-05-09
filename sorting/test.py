@@ -1,4 +1,5 @@
 import random
+from mergesort import *
 
 def main():
 
@@ -6,7 +7,8 @@ def main():
     test = random.sample(range(100), 100)
     correct = sorted(test)
 
-    #assert(td_mergesort(test) == correct)
+    assert(test_td_mergesort(test) == correct)
+    #assert(bu_mergesort(test) == correct)
     #assert(bubblesort(test) == correct)
     #assert(selectionsort(test) == correct)
     #assert(insertionsort(test) == correct)
@@ -18,3 +20,6 @@ def main():
     #assert(test == correct)
 
     #assert(heapsort(test) == correct)
+  print("Sort passed")
+
+main()
