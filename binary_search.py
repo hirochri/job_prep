@@ -8,7 +8,7 @@ def binarySearch(self, nums, target):
   #leq because it might be a list with one value 
   #and we still need to check equality, only need
   #to return when l > r
-  while l <= r:
+  while l <= r:    #*
     m = l + (r-l) // 2
     
     if nums[m] > target:
@@ -19,6 +19,11 @@ def binarySearch(self, nums, target):
       return True
       
   return False
+
+#* If you have a problem where you are guaranteed an answer, you can do l < r and return nums[l]
+#  If you aren't guaranteed an answer, you need to be able to check when l == r and then return false if you end
+#  up moving l > r
+#  Binary search and insert has l < r since it has a guaranteed insert point always
 
 #Return the index if the target is found,
 #otherwise return the index where it would be if it were
