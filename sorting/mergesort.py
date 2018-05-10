@@ -50,7 +50,7 @@ def merge(x, y):
   ret = []
 
   while x and y:
-    if x[0] < y[0]:
+    if x[0] <= y[0]: #Maintain stability
       ret.append(x[0])
       x.remove(x[0]) #Removes the 1st occurence in list, so order is maintained
     else:
@@ -71,7 +71,7 @@ def alt_merge(xs, ys):
   while i < len(xs) and j < len(ys):
     x,y = xs[i], ys[j]
 
-    if x < y:
+    if x <= y: #Maintain stability
       ret.append(x)
       i += 1
     else:
