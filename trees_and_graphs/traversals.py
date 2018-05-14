@@ -1,92 +1,3 @@
-#Recursive tree traversals
-def rec_preorder(node, result):
-  if node:
-    result.append(node.val)
-    rec_preorder(node.left, result)
-    rec_preorder(node.right, result)
-
-def rec_inorder(node, result):
-  if node:
-    rec_inorder(node.left, result)
-    result.append(node.val)
-    rec_inorder(node.right, result)
-
-def rec_postorder(node, result):
-  if node:
-    rec_postorder(node.left, result)
-    rec_postorder(node.right, result)
-    result.append(node.val)
-
-#Iterative tree traversals
-
-#Basically a DFS
-def iter_preorder(root):
-  if not root:
-    return
-  
-  result = []
-
-  stack = [root]
-
-  while stack:
-    node = stack.pop()
-
-    result.append(node.val)
-
-    if node.right:
-      stack.append(node.right)
-    if node.left:
-      stack.append(node.left) #Done second so it gets popped off first
-
-  return result
-
-def iter_inorder(root):
-  if not root:
-    return
-
-  result = []
-
-  stack = []
-  node = root
-
-  while stack or node:
-    if node:
-      stack.append(node)
-      node = node.left
-    else:
-      node = stack.pop()
-      result.append(node.val)
-      node = node.right
-  
-  return result
-
-def iter_postorder(root):
-  if not root:
-    return
-
-  result = []
-
-  visited = set()
-  stack = []
-  node = root
-
-  while stack or node:
-    if node:
-      stack.append(node)
-      node = node.left
-    else:
-      node = stack.pop()
-
-      if node.right and node.right not in visited:
-        stack.append(node)
-        node = node.right
-      else:
-        visited.add(node)
-        result.append(node.val)
-        node = None
-
-  return result
-
 #Iterative Binary Search Tree Inorder traversals
 
 def iterative_BST_Inorder_traversal1(root):
@@ -137,6 +48,9 @@ class Node:
        self.left = None
        self.right = None
 
+from preorder import *
+from inorder import *
+from postorder import *
 def main():
   #Build test tree
   #      0
