@@ -31,12 +31,12 @@ def binarySearch(self, nums, target):
 
 def binarysearch_insert(nums, target):
   l, r = 0, len(nums) #Want to be able to insert past last element of array
-  #Usually len(nums)-1 for search only
+  #Usually len(nums)-1 for search only -> don't care about adding new elements
       
   while l < r: #Guaranteed to always find an insertion point
     m = l + (r-l) // 2
     
-    if nums[m] >= target:
+    if nums[m] >= target: #$
       #Reduce right side of search space
       #Trying to find first element that is larger or equal to target
       #Want to include this element and keep moving right boundary
@@ -47,6 +47,11 @@ def binarysearch_insert(nums, target):
       l = m + 1
           
   return l
+  #Returns index at which target is or leftmost index where it should be inserted
+  #To make this return the rightmost index at which target should be inserted,
+  #we can make the $ conditional simply nums[m] > target. This then makes it
+  #so in the end l is the index one past our rightmost target. To know if
+  #the rightmost target itself exists, simply check nums[l-1] == target
 
 
 if __name__ == "__main__":
