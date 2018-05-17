@@ -20,7 +20,7 @@ def binarySearch(self, nums, target):
       
   return False
 
-#* If you have a problem where you are guaranteed an answer, you can do l < r and return nums[l]
+#* If you have a problem where you are guaranteed an answer (can be value or just index to put value), you can do l < r and return nums[l]
 #  If you aren't guaranteed an answer, you need to be able to check when l == r and then return false if you end
 #  up moving l > r
 #  Binary search and insert has l < r since it has a guaranteed insert point always
@@ -33,7 +33,7 @@ def binarysearch_insert(nums, target):
   l, r = 0, len(nums) #Want to be able to insert past last element of array
   #Usually len(nums)-1 for search only
       
-  while l < r:
+  while l < r: #Guaranteed to always find an insertion point
     m = l + (r-l) // 2
     
     if nums[m] >= target:
